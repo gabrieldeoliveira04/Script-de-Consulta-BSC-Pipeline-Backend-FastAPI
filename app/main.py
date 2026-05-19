@@ -2,6 +2,9 @@ from fastapi import FastAPI
 from app.database.connection import engine
 from app.database.session import Base
 from app.models.balance import Balance
+from app.api.routes.admin import (
+    router as admin_router
+)
 from app.api.routes.balances import (
     router as balance_router
 )
@@ -35,10 +38,14 @@ Built for technical challenge.
     }
 
 )
+app.include_router(
+    admin_router
+)
 
 app.include_router(
     stats_router
 )
+
 
 
 app.include_router(
