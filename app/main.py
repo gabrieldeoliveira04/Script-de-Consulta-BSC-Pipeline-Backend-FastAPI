@@ -4,12 +4,9 @@ from database.session import Base
 from models.balance import Balance
 
 
-print("Creating database tables...")
-
-
-Base.metadata.create_all(
-    bind=engine
+from collector.balance_collector import (
+    collect_balances
 )
 
 
-print("Tables created successfully")
+collect_balances()
