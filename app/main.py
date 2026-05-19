@@ -5,6 +5,9 @@ from app.models.balance import Balance
 from app.api.routes.admin import (
     router as admin_router
 )
+from app.services.scheduler import (
+    start_scheduler
+)
 from app.api.routes.balances import (
     router as balance_router
 )
@@ -38,9 +41,18 @@ Built for technical challenge.
     }
 
 )
-app.include_router(
-    admin_router
-)
+@app.on_event("startup")
+def startup():
+
+    Base.metadata.create_all(
+        bind=engine
+    )
+
+    start_scheduler()
+
+    print(
+        "API started successfully"
+    )
 
 app.include_router(
     stats_router
@@ -55,16 +67,12 @@ Base.metadata.create_all(
     bind=engine
 )
 
-@app.on_event("startup")
-def startup():
-
-    print(
-        "API started successfully"
-    )
-
 @app.get("/")
 def health_check():
 
     return {
         "status": "online"
     }
+app.include_router(
+    admin_router
+)
