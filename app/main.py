@@ -1,11 +1,15 @@
-from config.settings import settings
 from database.connection import engine
+from database.session import Base
+
+from models.balance import Balance
 
 
-print(engine)
+print("Creating database tables...")
 
-print(settings.DATABASE_URL)
 
-print(settings.RPC_URL)
+Base.metadata.create_all(
+    bind=engine
+)
 
-print(settings.WALLETS)
+
+print("Tables created successfully")
