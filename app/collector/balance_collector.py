@@ -1,10 +1,10 @@
-from database.session import SessionLocal
+from app.database.session import SessionLocal
 
-from models.balance import Balance
+from app.models.balance import Balance
 
-from services.bsc_service import BSCService
+from app.services.bsc_service import BSCService
 
-from config.settings import settings
+from app.config.settings import settings
 
 
 def collect_balances():

@@ -8,7 +8,7 @@ from sqlalchemy import (
 
 from sqlalchemy.sql import func
 
-from database.session import Base
+from app.database.session import Base
 
 
 class Balance(Base):
