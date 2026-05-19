@@ -6,9 +6,29 @@ import os
 load_dotenv()
 #carrega o arquivo .env para a memória
 
-RPC_URL = os.getenv("RPC_URL")
-#Busca variável da url da requisição por nome
+class Settings:
 
-WALLET_ADDRESS = os.getenv("WALLET_ADDRESS")
+    RPC_URL = os.getenv(
+        "RPC_URL"
+    )
 
-TOKEN_ADDRESS = os.getenv("TOKEN_ADDRESS")
+    TOKEN_ADDRESS = os.getenv(
+        "TOKEN_ADDRESS"
+    )
+
+    DATABASE_URL = os.getenv(
+        "DATABASE_URL"
+    )
+
+    WALLETS = [
+
+        os.getenv("WALLET_1"),
+
+        os.getenv("WALLET_2"),
+
+        os.getenv("WALLET_3")
+
+    ]
+
+
+settings = Settings()
