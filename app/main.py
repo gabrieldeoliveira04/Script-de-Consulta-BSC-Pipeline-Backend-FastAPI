@@ -43,6 +43,12 @@ app.include_router(
     balance_router
 )
 
+@app.on_event("startup")
+def startup():
+
+    print(
+        "API started successfully"
+    )
 
 @app.get("/")
 def health_check():
