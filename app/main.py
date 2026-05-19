@@ -1,12 +1,16 @@
-from database.connection import engine
-from database.session import Base
-
-from models.balance import Balance
+from fastapi import FastAPI
 
 
-from collector.balance_collector import (
-    collect_balances
+app = FastAPI(
+    title="BSC Balance Monitor API",
+    description="API for monitoring Binance wallets on BSC",
+    version="1.0.0"
 )
 
 
-collect_balances()
+@app.get("/")
+def health_check():
+
+    return {
+        "status": "online"
+    }
