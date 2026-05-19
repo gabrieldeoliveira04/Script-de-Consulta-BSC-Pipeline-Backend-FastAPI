@@ -1,0 +1,1 @@
+# Script-de-Consulta-BSC-Pipeline-Backend-FastAPI
