@@ -1,4 +1,8 @@
 from config.settings import settings
+from database.connection import engine
+
+
+print(engine)
 
 print(settings.DATABASE_URL)
 
