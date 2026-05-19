@@ -3,6 +3,8 @@ from datetime import datetime
 
 
 class BalanceResponse(BaseModel):
+    
+    id: int
 
     wallet_address: str
 

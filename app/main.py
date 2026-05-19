@@ -10,8 +10,28 @@ from app.api.routes.stats import (
 
 
 app = FastAPI(
+
     title="BSC Balance Monitor API",
-    version="1.0.0"
+
+    description="""
+API for monitoring Binance public wallets on Binance Smart Chain.
+
+Features:
+
+- collect wallet balances
+- store history in PostgreSQL
+- expose monitoring endpoints
+- provide statistics
+
+Built for technical challenge.
+""",
+
+    version="1.0.0",
+
+    contact={
+        "name":"Gabriel Oliveira"
+    }
+
 )
 
 app.include_router(
@@ -21,10 +41,6 @@ app.include_router(
 
 app.include_router(
     balance_router
-)
-
-app.include_router(
-    stats_router
 )
 
 

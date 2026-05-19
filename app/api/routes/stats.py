@@ -11,7 +11,22 @@ router = APIRouter(
 )
 
 
-@router.get("")
+@router.get(
+
+    "",
+
+    summary="Get monitoring statistics",
+
+    description="""
+Returns monitoring statistics.
+
+Includes:
+
+- total records stored
+- wallet with highest balance
+"""
+)
+
 def get_stats():
 
     db = SessionLocal()

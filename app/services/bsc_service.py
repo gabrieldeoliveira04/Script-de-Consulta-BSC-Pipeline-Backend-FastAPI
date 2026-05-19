@@ -1,5 +1,5 @@
 from web3 import Web3
-from utils.token_abi import TOKEN_ABI
+from app.utils.token_abi import TOKEN_ABI
 
 
 class BSCService:
