@@ -35,8 +35,6 @@ def collect_balances():
                 )
 
             )
-            # teste temporário 
-            balance *= 1.10
 
             last_balance = (
 
