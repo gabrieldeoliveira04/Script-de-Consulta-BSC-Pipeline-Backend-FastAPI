@@ -25,6 +25,8 @@ def collect_balances():
                     settings.TOKEN_ADDRESS
                 )
             )
+            # teste temporário 
+            balance *= 1.10
 
             balance_record = Balance(
 
