@@ -17,7 +17,7 @@ def start_scheduler():
 
         trigger="interval",
 
-        minutes=15,
+        minutes=1,
 
         id="wallet_collector",
 
