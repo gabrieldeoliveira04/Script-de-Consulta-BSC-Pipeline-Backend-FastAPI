@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from app.database.connection import engine
 from app.database.session import Base
 from app.models.balance import Balance
+from app.models.alert import Alert
 from app.api.routes.admin import (
     router as admin_router
 )
@@ -62,10 +63,7 @@ app.include_router(
 
 app.include_router(
     balance_router
-)
-Base.metadata.create_all(
-    bind=engine
-)
+) 
 
 @app.get("/")
 def health_check():
