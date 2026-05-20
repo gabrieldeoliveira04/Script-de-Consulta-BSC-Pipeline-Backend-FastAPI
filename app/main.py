@@ -2,8 +2,12 @@ from fastapi import FastAPI
 from app.database.connection import engine
 from app.database.session import Base
 from app.models.balance import Balance
+from app.models.alert import Alert
 from app.api.routes.admin import (
     router as admin_router
+)
+from app.api.routes.alerts import (
+    router as alert_router
 )
 from app.services.scheduler import (
     start_scheduler
@@ -57,15 +61,12 @@ def startup():
 app.include_router(
     stats_router
 )
-
-
-
+app.include_router(
+    alert_router
+)
 app.include_router(
     balance_router
-)
-Base.metadata.create_all(
-    bind=engine
-)
+) 
 
 @app.get("/")
 def health_check():
