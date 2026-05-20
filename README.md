@@ -183,6 +183,28 @@ POST /admin/collect
 
 ---
 
+## Validation Performed
+
+✓ API deployed on Render
+
+✓ PostgreSQL integration validated
+
+✓ Automatic scheduler validated
+
+✓ Collector execution tested
+
+✓ Wallet history endpoint tested
+
+✓ Statistics endpoint tested
+
+✓ Alert creation validated
+
+✓ Grafana dashboard connected with PostgreSQL
+
+✓ Real-time refresh validated
+
+✓ Alert dashboard visualization validated
+
 ## Project Architecture
 
 ```txt
@@ -285,6 +307,45 @@ WALLET_3=
 ```
 
 ---
+
+### Optional A — Automatic Scheduler
+
+The collector runs automatically every minute using APScheduler.
+
+Flow:
+
+Collector
+↓
+Blockchain query
+↓
+Database update
+↓
+Dashboard auto refresh
+
+No manual execution required.
+
+### Optional B — Alert System
+
+Implemented a wallet balance variation alert system.
+
+Features:
+
+- Detects balance changes above 5%
+- Stores alerts in PostgreSQL
+- Exposes GET /alerts endpoint
+- Dashboard visualization in Grafana
+
+Alert structure:
+
+wallet address
+
+previous balance
+
+current balance
+
+variation percentage
+
+timestamp
 
 ## Technical decisions
 
